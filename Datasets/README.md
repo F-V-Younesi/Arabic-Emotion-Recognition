@@ -1,5 +1,5 @@
 7class Iraqi Political Tweets consist of Happiness,Anger,Sadness,Fear,Opposition,Favorism,No emotion.
-\n
+<br>
 num of sampls: 7412 records
 
 5 class Iraqi Tweets consist of Happiness,Anger,Sadness,Favorism,None of them
