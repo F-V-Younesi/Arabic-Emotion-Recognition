@@ -3,6 +3,6 @@
 num of sampls: 7412 records
 
 5 class Iraqi Tweets consist of Happiness,Anger,Sadness,Favorism,None of them
-num of sampls: 2731 records
+<br> num of sampls: 2731 records
 
 
