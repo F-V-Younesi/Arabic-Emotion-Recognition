@@ -43,9 +43,6 @@ def create_label2ind_file(file, label_col):
 
 
 def data_prepare_BERT(file_path, lab2ind, tokenizer, content_col, label_col, MAX_LEN):
-	# Use pandas to load dataset
-	# df = pd.read_csv(file_path, delimiter='\t', header=0, encoding = 'utf-8', encoding_errors='ignore')
-	# df = pd.read_csv(file_path, delimiter='\t', header=0)
 	df = pd.read_excel(file_path, header=0)
 	df = df[df[content_col].notnull()]
 	df = df[df[label_col].notnull()]
@@ -57,25 +54,19 @@ def data_prepare_BERT(file_path, lab2ind, tokenizer, content_col, label_col, MAX
 	print (sentences[0])
 	# Create sentence and label lists
 	labels = df[label_col].values
-	#print (labels)
 	labels = [lab2ind[i] for i in labels]
 	# Import the BERT tokenizer, used to convert our text into tokens that correspond to BERT's vocabulary.
 	tokenized_texts = [tokenizer.tokenize(sent) for sent in sentences]
 	print ("Tokenize the first sentence:")
 	print (tokenized_texts[0])
-	#print("Label is ", labels[0])
 	# Use the BERT tokenizer to convert the tokens to their index numbers in the BERT vocabulary
 	input_ids = [tokenizer.convert_tokens_to_ids(x) for x in tokenized_texts]
 	print ("Index numbers of the first sentence:")
 	print (input_ids[0])
-	# Pad our input seqeunce to the fixed length (i.e., max_len) with index of [PAD] token
-	# ~ input_ids = pad_sequences(input_ids, maxlen=MAX_LEN, dtype="long", truncating="post", padding="post")
 	pad_ind = tokenizer.convert_tokens_to_ids(['[PAD]'])[0]
 	input_ids = pad_sequences(input_ids, maxlen=MAX_LEN+2, dtype="long", truncating="post", padding="post", value=pad_ind)
 	print ("Index numbers of the first sentence after padding:\n",input_ids[0])
-	# Create attention masks
 	attention_masks = []
-	# Create a mask of 1s for each token followed by 0s for padding
 	for seq in input_ids:
 		seq_mask = [float(i > 0) for i in seq]
 		attention_masks.append(seq_mask)
@@ -127,9 +118,7 @@ def evaluate(model, iterator, criterion):
 	all_label = []
 	with torch.no_grad():
 		for i, batch in enumerate(iterator):
-			# Add batch to GPU
 			batch = tuple(t.to(device) for t in batch)
-			# Unpack the inputs from our dataloader
 			input_ids, input_mask, labels = batch
 			outputs = model.to(device)(input_ids, input_mask, labels=labels)
 			loss, logits = outputs[:2]
@@ -144,7 +133,7 @@ def evaluate(model, iterator, criterion):
 			# put all the true labels and predictions to two lists
 			all_pred.extend(predicted)
 			all_label.extend(labels.cpu())
-	# return  all_pred,outputs
+
 	accuracy = accuracy_score(all_label, all_pred)
 	f1score_ma = f1_score(all_label, all_pred, average='macro')
 	f1score_w = f1_score(all_label, all_pred, average='weighted')
@@ -157,8 +146,6 @@ def evaluate(model, iterator, criterion):
 def fine_tuning(config):
 	#---------------------------------------
 	print ("[INFO] step (1) load train_test config file")
-	# config_file = open(config_file, 'r', encoding="utf8")
-	# config = json.load(config_file)
 	task_name = config["task_name"]
 	content_col = config["content_col"]
 	label_col = config["label_col"]
@@ -202,8 +189,6 @@ def fine_tuning(config):
 	model = BertForSequenceClassification.from_pretrained(model_path, num_labels=len(lab2ind))
 	#--------------------------------------
 	print ("[INFO] step (6) Create an iterator of data with torch DataLoader.")
-#		  This helps save on memory during training because, unlike a for loop,\
-#		  with an iterator the entire dataset does not need to be loaded into memory")
 	train_data = TensorDataset(train_inputs, train_masks, train_labels)
 	train_dataloader = DataLoader(train_data, batch_size=batch_size)
 	#---------------------------
