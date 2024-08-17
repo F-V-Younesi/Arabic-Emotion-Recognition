@@ -23,6 +23,8 @@ from transformers import AdamW, get_linear_schedule_with_warmup
 from transformers import AutoTokenizer, AutoModel
 
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print ("your device ", device)
 
 def create_label2ind_file(file, label_col):
 	labels_json={}
