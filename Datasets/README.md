@@ -1,3 +1,8 @@
+5 class Iraqi Tweets consist of Happiness,Anger,Sadness,Favoritism,None of them (Imbalanced)
+<br> num of samples: 34951 records
+
+![alt text](https://github.com/F-V-Younesi/Arabic-Emotion-Recognition/blob/main/Datasets/gitdataset%20classes.png)
+
 5 class Iraqi Tweets consist of Happiness,Anger,Sadness,Favoritism,None of them (Balanced)
 <br> num of samples: 20639 records
 
