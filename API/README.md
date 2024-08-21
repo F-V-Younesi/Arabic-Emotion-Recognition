@@ -27,7 +27,7 @@ As shown above, the directory with files and folders with same names must be cre
 !wget https://huggingface.co/UBC-NLP/MARBERT/resolve/main/MARBERT_pytorch_verison.tar.gz
 !tar -xvf MARBERT_pytorch_verison.tar.gz
 ```
-**Third: Importing Libraries:**
+**Third: Run app.py:**
 ```
 import json, sys, regex
 import torch
@@ -43,11 +43,6 @@ from transformers import *
 from tokenizers import Tokenizer, models, pre_tokenizers, decoders, processors
 from flask import Flask, render_template, request
 from Marbert_Inference_API import *
-```
-
-and then run app:
-```
-app = Flask(__name__)
 
 app = Flask(__name__)
 
