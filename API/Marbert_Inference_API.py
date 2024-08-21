@@ -1,17 +1,3 @@
-# importing libraries:
-import json, sys, regex
-import torch
-import torch.nn as nn
-from torch.utils.data import TensorDataset, DataLoader, RandomSampler, SequentialSampler
-from keras.preprocessing.sequence import pad_sequences
-from pytorch_pretrained_bert import BertTokenizer, BertConfig, BertAdam, BertForSequenceClassification
-from tqdm import tqdm, trange
-import pandas as pd
-import os
-import numpy as np
-##----------------------------------------------------
-from transformers import *
-from tokenizers import Tokenizer, models, pre_tokenizers, decoders, processors
 
 #os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
 
@@ -87,7 +73,7 @@ def inference(model, iterator):
 	return  result,label_list
 
 
-def prediction(model_path,data_file,lab2ind,tokenizer,content_col, label_col,max_seq_length,batch_size):
+def prediction():
 	model = BertForSequenceClassification.from_pretrained(model_path, num_labels=5)
 	validation_inputs, validation_labels, validation_masks = data_prepare_BERT(data_file, lab2ind, tokenizer, content_col, label_col,max_seq_length)
 	validation_data = TensorDataset(validation_inputs, validation_masks, validation_labels)
@@ -113,7 +99,7 @@ def prediction(model_path,data_file,lab2ind,tokenizer,content_col, label_col,max
 			to_labels.append('SADNESS')
 	tweets['class']=to_labels
 	tweets.to_excel('result.xlsx')
-
+	return "You can download results from above link"
 
 
 config={"data_file": "emo_rec/static/input_data.xlsx", #data file path
@@ -136,5 +122,3 @@ batch_size = int(config["batch_size"])
 global label2idx_file
 # label2idx_file = config["data_dir"]+config["task_name"]+"_labels-dict.json"
 lab2ind = json.load(open('emo_rec/IraqiT123_MARBERT_labels-dict.json'))
-
-prediction(model_path,data_file,lab2ind,tokenizer,content_col, label_col,max_seq_length,batch_size)
