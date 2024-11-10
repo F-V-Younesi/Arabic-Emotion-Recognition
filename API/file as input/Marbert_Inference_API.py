@@ -104,7 +104,7 @@ def prediction():
 		elif tweets['prediction'].iloc[i]==4:
 			to_labels.append('SADNESS')
 	tweets['class']=to_labels
-	tweets.to_excel('result.xlsx')
+	tweets.to_excel('emo_rec/result.xlsx')
 	return "You can download results from above link"
 
 
