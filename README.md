@@ -11,7 +11,8 @@ Emotion Recognition Repo for Iraqi Tweets.
    * [requirements](./API)
    * [app.py](./API)
 
-As shown above, the directory with files and folders with same names must be created.
+As shown above, you must create a directory named "emo_rec" with files and folders with same above names in your working directory.
+take attention: don't change directory(cd) to "emo_rec".
 
 ## For Inference:
 
