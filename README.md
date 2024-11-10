@@ -9,7 +9,7 @@ Emotion Recognition Repo for Iraqi Tweets.
    * [index.html](./API/file_as_input/templates/index.html)
  * [Marbert_Inference_API.py](./API/file_as_input/Marbert_Inference_API.py)
  * [requirements](./API/file_as_input/requirements.txt)
- * [app.py](./API/file_as_input/app.py)
+ * [app.py]('./API/file as input/app.py')
 
 As shown above, the directory with files and folders with same names must be created.
 
