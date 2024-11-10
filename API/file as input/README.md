@@ -14,26 +14,15 @@ As shown above, the directory with files and folders with same names must be cre
 ```
 !pip install -r requirements.txt
 # or in conda: conda install --yes --file requirements.txt
-!pip install git+https://github.com/openai/whisper.git
-!python -m perke download
-!python3 -m pip install -U git+https://github.com/facebookresearch/demucs#egg=demucs
-
-#only in conda environment it is necessary to run:
-!conda install conda-forge::ffmpeg
 ```
 
-**Second: make following directory in local path of "parsivar package" then download and copy onegram.pckl & mybigram_lm.pckl models in this directoy. this stage must be done "after installing Packages":** <br>
-download onegram.pckl from:<br>
-https://drive.google.com/file/d/1-BWmc5-kH637ZpgI-DPonwpwKKk1Q8Rj/view?usp=sharing<br>
-download mybigram_lm.pckl from:<br>
-https://drive.google.com/file/d/1uCh2S2wqUbTke5TH7cv9V3xLILlLsGW0/view?usp=sharing<br>
+**Second: Download models":** <br>
+```
+!wget https://huggingface.co/UBC-NLP/MARBERT/resolve/main/MARBERT_pytorch_verison.tar.gz
+!tar -xvf MARBERT_pytorch_verison.tar.gz
+<br>
+```
 
-```
-#Making "spell" folder in "parsivar/resource" path:
-!mkdir '/usr/local/lib/python3.10/dist-packages/parsivar/resource/spell' #change this with your parsivar installed path
-!cp 'onegram.pckl' '/usr/local/lib/python3.10/dist-packages/parsivar/resource/spell'
-!cp 'mybigram_lm.pckl' '/usr/local/lib/python3.10/dist-packages/parsivar/resource/spell'
-```
 **Third: Importing Libraries:**
 ```
 import moviepy.editor
