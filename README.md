@@ -4,12 +4,12 @@ Emotion Recognition Repo for Iraqi Tweets.
 
 # Project tree
 
- * [static](./static)
- * [templates](./templates)
-   * [index.html](./templates/index.html)
- * [Marbert_Inference_API.py](./Marbert_Inference_API.py)
- * [requirements](./requirements.txt)
- * [app.py](./app.py)
+ * [static](./API/file as input/static)
+ * [templates](./API/file as input/templates)
+   * [index.html](./templates/API/file as input/index.html)
+ * [Marbert_Inference_API.py](./API/file as input/Marbert_Inference_API.py)
+ * [requirements](./API/file as input/requirements.txt)
+ * [app.py](./API/file as input/app.py)
 
 As shown above, the directory with files and folders with same names must be created.
 
