@@ -29,7 +29,7 @@ def get_output():
 		text = request.form['textarea']
 		listtext=[text]
 		df=pd.DataFrame(listtext, columns=["tweet"])
-		file_path = "static/input_data.xlsx"
+		file_path = "emo_rec/static/input_data.xlsx"
 		df.to_excel(file_path)
 		p=prediction()
 
