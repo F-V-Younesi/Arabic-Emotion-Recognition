@@ -27,7 +27,7 @@ def main():
 def get_output():
 	if request.method == 'POST':
 		file = request.files['myfile']
-		file_path = "static/input_data.xlsx"
+		file_path = "emo_rec/static/input_data.xlsx"
 		file.save(file_path)
 		p=prediction()
 
