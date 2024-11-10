@@ -25,8 +25,9 @@ take attention: don't change directory(cd) to "emo_rec".
 ```
 !wget https://huggingface.co/UBC-NLP/MARBERT/resolve/main/MARBERT_pytorch_verison.tar.gz
 !tar -xvf MARBERT_pytorch_verison.tar.gz
-<br>
 ```
+<br>
+
 3- download FineTune model (trained on dataset3-1) and config in "emo_rec" folder: [model](https://huggingface.co/fvyounesi/Marbert_Iraqi_FineTuned) </br>
-4- download label-dict file from here [label-dict](https://huggingface.co/fvyounesi/Marbert_Iraqi_FineTuned) in "emo_rec" folder</br>
+4- download label-dict file from [label-dict](https://huggingface.co/fvyounesi/Marbert_Iraqi_FineTuned) in "emo_rec" folder</br>
 5- run emo_rec/app.py
