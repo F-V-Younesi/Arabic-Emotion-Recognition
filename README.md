@@ -4,7 +4,7 @@ Emotion Recognition Repo for Iraqi Tweets.
 
 # Project tree
 
- * [static](./API/file as input/static)
+ * [API/file as input/static](./static)
  * [templates](./API/file as input/templates)
    * [index.html](./templates/API/file as input/index.html)
  * [Marbert_Inference_API.py](./API/file as input/Marbert_Inference_API.py)
