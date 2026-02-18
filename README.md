@@ -28,6 +28,6 @@ take attention: don't change directory(cd) to "emo_rec".
 ```
 <br>
 
-3- download FineTune model (trained on dataset3-1) and config in "emo_rec" folder: [model](https://huggingface.co/fvyounesi/Marbert_Iraqi_FineTuned) </br>
+3- download Finetuned model (trained on dataset3-1) and config in "emo_rec" folder: [model](https://huggingface.co/fvyounesi/Marbert_Iraqi_FineTuned) </br>
 4- download label-dict file from [label-dict](https://huggingface.co/fvyounesi/Marbert_Iraqi_FineTuned) in "emo_rec" folder</br>
 5- run emo_rec/app.py
